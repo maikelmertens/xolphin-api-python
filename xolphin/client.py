@@ -26,11 +26,11 @@ class Client(object):
         self._session = requests.session()
         self._session.headers.update({'Accept': 'application/json'})
         self._session.auth = HTTPBasicAuth(username, password)
-        self._session.proxies.update({
-            'http': '127.0.0.1:8888',
-            'https': '127.0.0.1:8888',
-        })
-        self._session.verify = False
+        #self._session.proxies.update({
+        #    'http': '127.0.0.1:8888',
+        #    'https': '127.0.0.1:8888',
+        #})
+        #self._session.verify = False
 
     def get(self, method, data={}):
         response = self._session.get("%s%s" % (Client.BASE_URL, method), params=data)
