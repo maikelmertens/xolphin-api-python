@@ -35,7 +35,7 @@ class Client(object):
     def get(self, method, data={}):
         response = self._session.get("%s%s" % (Client.BASE_URL, method), params=data)
         if 200 <= response.status_code < 300:
-            return json.loads(response.content)
+            return json.loads(response.content.decode('utf-8'))
         else:
             raise Exception(response.content)
 
@@ -53,10 +53,9 @@ class Client(object):
                 payload[k] = ('document.pdf', str(data[k]), 'application/pdf')
             else:
                 payload[k] = (None, str(data[k]))
-        print(payload)
         response = self._session.post("%s%s" % (Client.BASE_URL, method), files=payload)
         if 200 <= response.status_code < 300:
-            return json.loads(response.content)
+            return json.loads(response.content.decode('utf-8'))
         else:
             raise Exception(response.content)
 

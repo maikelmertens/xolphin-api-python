@@ -54,7 +54,7 @@ Getting request by ID
 .. code:: python
 
     request = client.request().get(961992637)
-    print request.product.brand
+    print(request.product.brand)
 
 Request certificate
 ~~~~~~~~~~~~~~~~~~~
@@ -79,7 +79,7 @@ Request certificate
     })
 
     request = client.request().send(ccr)
-    print request.id
+    print(request.id)
 
 Certificate
 ~~~~~~~~~~~
@@ -91,7 +91,7 @@ Certificates list and expirations
 
     certificates = client.certificate().all()
     for certificate in certificates:
-        print certificate.id, certificate.isExpired()
+        print(certificate.id, certificate.isExpired())
 
 Download certificate
 ^^^^^^^^^^^^^^^^^^^^
@@ -112,7 +112,7 @@ Products list
 
     products = client.support().products()
     for product in products:
-        print product.id, product.brand
+        print(product.id, product.brand)
 
 Decode CSR
 ^^^^^^^^^^
@@ -120,4 +120,4 @@ Decode CSR
 .. code:: js
 
     data = client.support().decode_csr('csr string')
-    print data.type, data.size
+    print(data.type, data.size)
