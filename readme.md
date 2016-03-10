@@ -39,14 +39,14 @@ client = xolphin.Client('<username>', '<password>')
 ```python
 requests = client.request().all()
 for request in requests:
-    print request.id, request.product.id
+    print(request.id, request.product.id)
 ```
 
 ### Getting request by ID
 
 ```python
 request = client.request().get(961992637)
-print request.product.brand
+print(request.product.brand)
 ```
 
 ### Request certificate
@@ -70,7 +70,7 @@ ccr.dcv.append({
 })
 
 request = client.request().send(ccr)
-print request.id
+print(request.id)
 ```
 
 ### Certificate
@@ -80,7 +80,7 @@ print request.id
 ```python
 certificates = client.certificate().all()
 for certificate in certificates:
-    print certificate.id, certificate.isExpired()
+    print(certificate.id, certificate.isExpired())
 ```
 
 #### Download certificate
@@ -98,12 +98,12 @@ with open('crt.crt', 'wb') as f:
 ```python
 products = client.support().products()
 for product in products:
-    print product.id, product.brand
+    print(product.id, product.brand)
 ```
 
 #### Decode CSR
 
-```js
+```python
 data = client.support().decode_csr('csr string')
-print data.type, data.size
+print(data.type, data.size)
 ```
